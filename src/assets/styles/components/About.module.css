@@ -1,0 +1,21 @@
+.aboutHeader{
+    font-family: Italiana;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888888;
+
+}
+
+.aboutText{
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    ;
+}

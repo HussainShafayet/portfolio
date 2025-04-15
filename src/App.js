@@ -3,7 +3,7 @@ import React from 'react';
 import {About, Contact, Hero, Navbar, Projects, Skills} from './components';
 const App = () => {
   return (
-    <div className="bg-gray-100 text-gray-900 font-sans">
+    <div className="md:container md:mx-auto">
       <Navbar />
       <Hero id='hero' />
       <About id="about" />
