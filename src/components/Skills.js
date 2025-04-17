@@ -46,12 +46,12 @@ const Skills = () => (
         </div>
         <div>
             <h2 className={`mb-6 ${styles.headerText}`}>SOFT Skills</h2>
-            <div className="flex justify-center items-start min-h-screen bg-white p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 gap-y-3 text-black text-base">
+            <div className="flex justify-center items-start bg-white p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 gap-y-3 text-base">
                 {softSkills.map((col, i) => (
                 <ul key={i} className="space-y-3 list-disc list-inside">
                     {col.map((skill, j) => (
-                    <li key={j}>{skill}</li>
+                    <li key={j} className={`${styles.softskilltext}`}>{skill}</li>
                     ))}
                 </ul>
                 ))}

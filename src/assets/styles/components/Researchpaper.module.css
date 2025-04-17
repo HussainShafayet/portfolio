@@ -9,11 +9,20 @@
     color: #888888;
 }
 
-.softskilltext{
+.researchText {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.researchSubText{
     font-family: Inter;
     font-weight: 400;
     font-size: 20px;
-    line-height: 237%;
+    line-height: 100%;
     letter-spacing: 0%;
     color: #000000;
 }
