@@ -12,21 +12,28 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      let current = '';
-      sections.forEach(id => {
-        const section = document.getElementById(id);
-        if (section && window.scrollY >= section.offsetTop - 80) {
+useEffect(() => {
+  const handleScroll = () => {
+    let current = '';
+
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
           current = id;
         }
-      });
-      setActiveSection(current);
-    };
+      }
+    });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setActiveSection(current);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Run once on load
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
 
   const navLink = (id, label) => (
     <a
