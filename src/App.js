@@ -8,7 +8,6 @@ const App = () => {
       <Hero id='hero' />
       <About id="about" />
       <Skills id="skills" />
-      <ResearchPapers />
       <Projects id="projects" />
       <Contact id="contact" />
     </div>
