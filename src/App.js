@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import {About, Contact, Hero, Navbar, Projects, ResearchPapers, Skills} from './components';
+import Footer from './components/Footer';
 const App = () => {
   return (
     <div className="md:container md:mx-auto">
@@ -10,6 +11,7 @@ const App = () => {
       <Skills id="skills" />
       <Projects id="projects" />
       <Contact id="contact" />
+      <Footer />
     </div>
   );
 };
