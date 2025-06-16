@@ -18,7 +18,10 @@ const fadeInUp = {
 };
 
 const Hero = () => (
-  <section id="hero" className={`h-screen flex items-center justify-center px-4 py-10 ${style.heroSection}`}>
+ <section
+  id="hero"
+  className={`min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4 py-10 ${style.heroSection}`}>
+
     <div className={`${style.heroContainer}`}>
       <motion.div
         className={style.heroImageWrapper}
