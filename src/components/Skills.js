@@ -1,65 +1,98 @@
+// src/components/Skills.jsx
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Code,
+  Terminal,
+  Atom,
+  Zap,
+  Wrench,
+  GitBranch,
+  Database,
+  Server,
+  Settings,
+  Globe,
+} from 'lucide-react';
 
-import styles from '../assets/styles/components/Skills.module.css';
 
-const skills = [{
-    file: '',
-    name: 'Ps',
-    description: ''
-},
-{
-    file: '',
-    name: 'Ai',
-    description: ''
-},
-{
-    file: '',
-    name: 'Xd',
-    description: ''
-},{
-    file: '',
-    name: 'Figma',
-    description: ''
-}]
-const softSkills = [
-    ["Empathetic Human-Centered UI", "User Centric Thinking", "User Research", "Accessibility Standards", "Wireframing"],
-    ["Prototyping", "A/B Testing", "HTML / CSS", "Content Strategy", "Portfolio Sketching"]
-  ];
+const categories = {
+  All: [
+    { name: 'JavaScript', icon: <Zap size={20} /> },
+  { name: 'React', icon: <Atom size={20} /> },
+  { name: 'Next.js', icon: <Server size={20} /> },
+  { name: 'HTML/CSS', icon: <Code size={20} /> },
+  { name: 'Git & GitHub', icon: <GitBranch size={20} /> },
+  { name: 'REST API', icon: <Settings size={20} /> },
+  { name: 'Node.js', icon: <Database size={20} /> },
+  { name: 'Build Tools', icon: <Wrench size={20} /> },
+  ],
+  Frontend: [
+    { name: 'JavaScript', icon: <Zap size={20} /> },
+    { name: 'React', icon: <Atom size={20} /> },
+    { name: 'Next.js', icon: <Server size={20} /> },
+    { name: 'HTML/CSS', icon: <Code size={20} /> },
+  ],
+  Tools: [
+    { name: 'Git & GitHub', icon: <GitBranch size={20} /> },
+  { name: 'REST API', icon: <Settings size={20} /> },
+  { name: 'Node.js', icon: <Database size={20} /> },
+  { name: 'Build Tools', icon: <Wrench size={20} /> }
+  ],
+};
 
-const Skills = () => (
-    <section id="skills" className="py-12">
-        <div className='mb-6'>
-            <h2 className={`mb-6 ${styles.headerText}`}>Skills</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
-            {skills.map((skill)=>(
-                <div class="flex items-center justify-center ">
-                    <div class="bg-white rounded-2xl shadow-lg p-8  text-center">
-                        <div class="flex items-center justify-center mb-4">
-                        <img src="your-icon-path.png" alt="Photoshop Icon" class="w-12 h-12" />
-                        </div>
-                        <p class="text-gray-500 text-sm">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        </p>
-                    </div>
-                </div>
-            ))}
-            </div>
+const Skills = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  return (
+    <section id="skills" className="py-16 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 text-center">
+        <motion.h2
+          className="text-3xl font-bold mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Skills
+        </motion.h2>
+
+        <div className="flex justify-center gap-4 mb-8">
+          {Object.keys(categories).map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-full font-medium border ${
+                activeCategory === category
+                  ? 'bg-blue-600 text-white border-blue-600'
+                  : 'text-gray-700 hover:bg-blue-100'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
-        <div>
-            <h2 className={`mb-6 ${styles.headerText}`}>SOFT Skills</h2>
-            <div className="flex justify-center items-start bg-white p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 gap-y-3 text-base">
-                {softSkills.map((col, i) => (
-                <ul key={i} className="space-y-3 list-disc list-inside">
-                    {col.map((skill, j) => (
-                    <li key={j} className={`${styles.softskilltext}`}>{skill}</li>
-                    ))}
-                </ul>
-                ))}
-            </div>
-            </div>
-        </div>
+
+        <motion.div
+          key={activeCategory}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+        >
+          {categories[activeCategory].map((skill, idx) => (
+            <motion.div
+              key={idx}
+              className="flex flex-col items-center bg-white shadow-md p-4 rounded-xl hover:shadow-xl transition"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-blue-600 mb-2">{skill.icon}</div>
+              <p className="text-sm font-semibold text-gray-800">{skill.name}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
-);
+  );
+};
 
 export default Skills;
-  
