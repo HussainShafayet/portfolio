@@ -1,15 +1,58 @@
+/* ===== CSS Variables for Animation and Styling ===== */
 :root {
   --fade-distance: 20px;
   --fade-duration: 0.6s;
   --fade-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ===== Main Section Layout ===== */
 .heroSection {
   background: linear-gradient(135deg, #f0f4f8, #ffffff);
   color: #1a202c;
+  width: 100%;
 }
 
-/* Typography */
+/* ===== Container Layout ===== */
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ===== Image Section ===== */
+.heroImageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #2b6cb0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.heroImage:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Content Area ===== */
+.heroContent {
+  flex: 2;
+  max-width: 600px;
+}
+
+/* ===== Typography ===== */
 .heroSubHeader {
   font-size: 1.25rem;
   font-weight: 500;
@@ -43,7 +86,7 @@
   color: #2b6cb0;
 }
 
-/* Modern animation */
+/* ===== Modern Animation ===== */
 @keyframes fadeInModern {
   0% {
     opacity: 0;
@@ -64,18 +107,32 @@
 .fadeDelay1 {
   animation-delay: 0.2s;
 }
+
 .fadeDelay2 {
   animation-delay: 0.4s;
 }
+
 .fadeDelay3 {
   animation-delay: 0.6s;
 }
+
 .fadeDelay4 {
   animation-delay: 0.8s;
 }
 
-/* Responsive typography */
+/* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroImage {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+
   .heroHeader {
     font-size: 2.25rem;
   }
@@ -95,7 +152,7 @@
   }
 }
 
-/* Accessibility */
+/* ===== Accessibility: Reduce Motion ===== */
 @media (prefers-reduced-motion: reduce) {
   .fadeInModern {
     animation: none;
