@@ -27,3 +27,15 @@
     color: #000000;
 
 }
+
+.headerText {
+  @apply text-4xl font-bold text-center text-gray-800 mb-12;
+}
+
+.projectTitle {
+  @apply text-xl font-semibold text-gray-800;
+}
+
+.projectDescription {
+  @apply text-gray-600 leading-relaxed text-lg;
+}
