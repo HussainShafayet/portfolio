@@ -1,7 +1,15 @@
-//import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, CheckCircle } from "lucide-react";
-import {useState} from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Github,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -30,17 +38,30 @@ const Contact = () => {
     validate({ [name]: value });
   };
 
+  // Clear error on input focus
+  const handleFocus = (e) => {
+    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      // Fake API call
+      // Simulate API call
       await new Promise((r) => setTimeout(r, 2000));
       setIsSubmitting(false);
       setSuccess(true);
       setForm({ name: "", email: "", message: "" });
     }
   };
+
+  // Auto-hide success message after 3s
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => setSuccess(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
 
   return (
     <section className="mx-auto p-8 bg-gradient-to-br from-indigo-50 via-white to-indigo-50 shadow-xl dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -63,32 +84,34 @@ const Contact = () => {
             Feel free to reach out via the form or connect on social media.
           </p>
           <div className="space-y-4">
-            {[{
-              icon: <Mail className="text-indigo-600" />,
-              label: "Email",
-              value: (
-                <a
-                  href="mailto:youremail@example.com"
-                  className="hover:underline"
-                >
-                  youremail@example.com
-                </a>
-              ),
-            },
-            {
-              icon: <Phone className="text-indigo-600" />,
-              label: "Phone",
-              value: (
-                <a href="tel:+1234567890" className="hover:underline">
-                  +1 (234) 567-890
-                </a>
-              ),
-            },
-            {
-              icon: <MapPin className="text-indigo-600" />,
-              label: "Location",
-              value: "New York, USA",
-            },].map(({ icon, label, value }) => (
+            {[
+              {
+                icon: <Mail className="text-indigo-600" />,
+                label: "Email",
+                value: (
+                  <a
+                    href="mailto:youremail@example.com"
+                    className="hover:underline"
+                  >
+                    youremail@example.com
+                  </a>
+                ),
+              },
+              {
+                icon: <Phone className="text-indigo-600" />,
+                label: "Phone",
+                value: (
+                  <a href="tel:+1234567890" className="hover:underline">
+                    +1 (234) 567-890
+                  </a>
+                ),
+              },
+              {
+                icon: <MapPin className="text-indigo-600" />,
+                label: "Location",
+                value: "New York, USA",
+              },
+            ].map(({ icon, label, value }) => (
               <div key={label} className="flex items-center gap-4">
                 {icon}
                 <div>
@@ -99,19 +122,23 @@ const Contact = () => {
             ))}
           </div>
           <div className="flex gap-6 text-indigo-600 dark:text-indigo-300">
-            {[{
-              href: "https://linkedin.com/in/yourprofile",
-              icon: <Linkedin size={28} />,
-              label: "LinkedIn",
-            },{
-              href: "https://twitter.com/yourprofile",
-              icon: <Twitter size={28} />,
-              label: "Twitter",
-            },{
-              href: "https://github.com/yourprofile",
-              icon: <Github size={28} />,
-              label: "GitHub",
-            }].map(({ href, icon, label }) => (
+            {[
+              {
+                href: "https://linkedin.com/in/yourprofile",
+                icon: <Linkedin size={28} />,
+                label: "LinkedIn",
+              },
+              {
+                href: "https://twitter.com/yourprofile",
+                icon: <Twitter size={28} />,
+                label: "Twitter",
+              },
+              {
+                href: "https://github.com/yourprofile",
+                icon: <Github size={28} />,
+                label: "GitHub",
+              },
+            ].map(({ href, icon, label }) => (
               <a
                 key={label}
                 href={href}
@@ -134,6 +161,7 @@ const Contact = () => {
           animate={{ opacity: 1, x: 0 }}
           noValidate
         >
+          {/* Name */}
           <div className="relative mb-6">
             <input
               type="text"
@@ -141,6 +169,8 @@ const Contact = () => {
               placeholder="Your Name"
               value={form.name}
               onChange={handleChange}
+              onFocus={handleFocus}
+              disabled={isSubmitting}
               className={`peer w-full p-3 border-b-2 outline-none transition-colors ${
                 errors.name
                   ? "border-red-500 focus:border-red-600"
@@ -154,13 +184,7 @@ const Contact = () => {
                 id="name-error"
                 className="text-red-600 text-sm mt-1 flex items-center gap-1"
               >
-                <svg
-                  className="w-4 h-4 fill-current"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11v4H9v-4h2zm0 6v2H9v-2h2z" />
-                </svg>
+                <AlertCircle className="w-4 h-4 text-red-600" />
                 {errors.name}
               </p>
             ) : (
@@ -176,6 +200,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Email */}
           <div className="relative mb-6">
             <input
               type="email"
@@ -183,6 +208,8 @@ const Contact = () => {
               placeholder="Your Email"
               value={form.email}
               onChange={handleChange}
+              onFocus={handleFocus}
+              disabled={isSubmitting}
               className={`peer w-full p-3 border-b-2 outline-none transition-colors ${
                 errors.email
                   ? "border-red-500 focus:border-red-600"
@@ -196,13 +223,7 @@ const Contact = () => {
                 id="email-error"
                 className="text-red-600 text-sm mt-1 flex items-center gap-1"
               >
-                <svg
-                  className="w-4 h-4 fill-current"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11v4H9v-4h2zm0 6v2H9v-2h2z" />
-                </svg>
+                <AlertCircle className="w-4 h-4 text-red-600" />
                 {errors.email}
               </p>
             ) : (
@@ -218,6 +239,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Message */}
           <div className="relative mb-6">
             <textarea
               name="message"
@@ -225,6 +247,8 @@ const Contact = () => {
               placeholder="Your Message"
               value={form.message}
               onChange={handleChange}
+              onFocus={handleFocus}
+              disabled={isSubmitting}
               className={`peer w-full p-3 border-b-2 resize-none outline-none transition-colors ${
                 errors.message
                   ? "border-red-500 focus:border-red-600"
@@ -238,13 +262,7 @@ const Contact = () => {
                 id="message-error"
                 className="text-red-600 text-sm mt-1 flex items-center gap-1"
               >
-                <svg
-                  className="w-4 h-4 fill-current"
-                  viewBox="0 0 20 20"
-                  aria-hidden="true"
-                >
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11v4H9v-4h2zm0 6v2H9v-2h2z" />
-                </svg>
+                <AlertCircle className="w-4 h-4 text-red-600" />
                 {errors.message}
               </p>
             ) : (
@@ -260,29 +278,28 @@ const Contact = () => {
             )}
           </div>
 
-          <motion.button
+          {/* Submit */}
+          <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 rounded-md text-white font-semibold transition-colors ${
-              isSubmitting ? "bg-indigo-400 cursor-wait" : "bg-indigo-600 hover:bg-indigo-700"
-            }`}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Send Message"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
-          </motion.button>
+          </button>
 
+          {/* Success Message */}
           <AnimatePresence>
             {success && (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="mt-4 p-3 bg-green-100 text-green-800 rounded-md text-center font-medium"
+                className="mt-6 text-green-600 font-semibold text-center flex items-center justify-center gap-2"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 role="alert"
-                onAnimationComplete={() => setTimeout(() => setSuccess(false), 3000)}
+                aria-live="assertive"
               >
-                <CheckCircle className="inline mr-1" /> Message sent successfully!
+                <CheckCircle />
+                Message sent successfully!
               </motion.div>
             )}
           </AnimatePresence>
