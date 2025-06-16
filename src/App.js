@@ -1,16 +1,41 @@
 // src/App.jsx
-import React from 'react';
-import {About, Contact, Hero, Navbar, Projects, ResearchPapers, Skills} from './components';
-import Footer from './components/Footer';
+import React from "react";
+import {
+  About,
+  Contact,
+  Hero,
+  Navbar,
+  Projects,
+  Skills,
+} from "./components";
+import Footer from "./components/Footer";
+import FadeInSection from "./components/FadeInSection";
+
 const App = () => {
   return (
-    <div className="md:container md:mx-auto">
+    <div className="min-h-screen md:container md:mx-auto px-4">
       <Navbar />
-      <Hero id='hero' />
-      <About id="about" />
-      <Skills id="skills" />
-      <Projects id="projects" />
-      <Contact id="contact" />
+
+      <main>
+        <Hero id="hero" />
+
+        <FadeInSection>
+          <About id="about" />
+        </FadeInSection>
+
+        <FadeInSection direction="up" delay={0.2}>
+          <Skills id="skills" />
+        </FadeInSection>
+
+        <FadeInSection direction="up" delay={0.2}>
+          <Projects id="projects" />
+        </FadeInSection>
+
+        <FadeInSection direction="up" delay={0.2}>
+          <Contact id="contact" />
+        </FadeInSection>
+      </main>
+
       <Footer />
     </div>
   );
