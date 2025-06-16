@@ -1,26 +1,105 @@
+:root {
+  --fade-distance: 20px;
+  --fade-duration: 0.6s;
+  --fade-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.heroSection {
+  background: linear-gradient(135deg, #f0f4f8, #ffffff);
+  color: #1a202c;
+}
+
+/* Typography */
+.heroSubHeader {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
 .heroHeader {
-    font-family: Italiana;
-    font-weight: 400;
-    font-size: 100.27px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
 }
 
-.heroSubHeader{
-    font-family: Italiana;
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
+.heroTagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #718096;
+  margin-bottom: 1.25rem;
 }
 
-.heroText{
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
+.heroText {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #4a5568;
+  padding: 0 0.5rem;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #2b6cb0;
+}
+
+/* Modern animation */
+@keyframes fadeInModern {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--fade-distance)) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fadeInModern {
+  opacity: 0;
+  animation: fadeInModern var(--fade-duration) var(--fade-ease) forwards;
+  transform-origin: center;
+}
+
+.fadeDelay1 {
+  animation-delay: 0.2s;
+}
+.fadeDelay2 {
+  animation-delay: 0.4s;
+}
+.fadeDelay3 {
+  animation-delay: 0.6s;
+}
+.fadeDelay4 {
+  animation-delay: 0.8s;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .heroHeader {
+    font-size: 2.25rem;
+  }
+
+  .heroText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroHeader {
+    font-size: 1.75rem;
+  }
+
+  .heroTagline {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fadeInModern {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
