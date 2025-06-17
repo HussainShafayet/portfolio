@@ -5,32 +5,43 @@ import styles from '../assets/styles/components/About.module.css';
 
 const timelineData = [
   {
-    year: '2023 - Present',
-    title: 'Senior Frontend Developer',
-    company: 'Awesome Tech Co.',
+    year: 'Dec 2022 – Present',
+    title: 'Software Developer',
+    company: 'Algorithm Generation Ltd.',
     description:
-      'Leading frontend teams, architecting scalable React & Next.js apps, mentoring juniors.',
+      'Building scalable and maintainable web applications using React and Ember.js. Responsible for component architecture, performance tuning, and integrating RESTful APIs.',
     icon: <Briefcase size={24} />,
     type: 'work',
   },
   {
-    year: '2020 - 2023',
-    title: 'Frontend Developer',
-    company: 'Innovative Web Solutions',
+    year: 'Dec 2021 – Nov 2022',
+    title: 'Junior Developer',
+    company: 'Algorithm Generation Ltd.',
     description:
-      'Built and maintained dynamic web applications with React and Ember.js.',
+      'Contributed to front-end development using React and JavaScript. Collaborated in agile teams to deliver responsive UI and enhance user experiences.',
     icon: <Briefcase size={24} />,
     type: 'work',
   },
   {
-    year: '2017 - 2020',
-    title: 'BSc in Computer Science',
-    company: 'State University',
-    description: 'Graduated with honors, focusing on web development & software engineering.',
+    year: 'Jun 2021 – Nov 2021',
+    title: 'Apprentice Developer',
+    company: 'Algorithm Generation Ltd.',
+    description:
+      'Completed a 6-month apprenticeship focusing on modern front-end technologies, including hands-on projects with React and version control systems like Git.',
+    icon: <Briefcase size={24} />,
+    type: 'work',
+  },
+  {
+    year: '2016 – 2021',
+    title: 'BSc in Computer Science & Engineering',
+    company: 'Sylhet Engineering College',
+    description:
+      'Graduated with a strong foundation in software development, data structures, algorithms, and web technologies.',
     icon: <BookOpen size={24} />,
     type: 'education',
   },
 ];
+
 
 const About = () => {
   const { scrollYProgress } = useScroll({
@@ -60,7 +71,7 @@ const About = () => {
             aspect of my life.
           </p>
           <p className={styles.highlight}>
-            Core Skills: <strong>JavaScript, React, Next.js, Ember.js, CSS Modules, REST APIs</strong>
+            Core Skills: <strong>JavaScript, React, Next.js, Ember.js, CSS Modules, Tailwind</strong>
           </p>
         </div>
 

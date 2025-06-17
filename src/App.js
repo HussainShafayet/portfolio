@@ -3,13 +3,14 @@ import React from "react";
 import {
   About,
   Contact,
+  FadeInSection,
+  Footer,
   Hero,
   Navbar,
   Projects,
+  ScrollToTop,
   Skills,
 } from "./components";
-import Footer from "./components/Footer";
-import FadeInSection from "./components/FadeInSection";
 
 const App = () => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
       </main>
 
       <Footer />
+
+      <ScrollToTop />
     </div>
   );
 };
