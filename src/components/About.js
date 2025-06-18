@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Briefcase, BookOpen } from 'lucide-react';
-import styles from '../assets/styles/components/About.module.css';
 
 const timelineData = [
   {
@@ -42,59 +41,69 @@ const timelineData = [
   },
 ];
 
-
 const About = () => {
   const { scrollYProgress } = useScroll({
-    target: document.getElementById('timeline'),
+    target: typeof window !== 'undefined' ? document.getElementById('timeline') : null,
     offset: ['start end', 'end start'],
   });
   const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <section id="about" className={`bg-white text-gray-900 dark:bg-[#0f0f0f] dark:text-slate-100 ${styles.aboutSection}`}>
+    <section id="about" className="bg-gradient-to-br from-gray-100 to-white text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 py-20 px-6">
       <motion.div
-        className={styles.innerWrapper}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16"
       >
-        <div className={styles.leftColumn}>
-          <h2 className={styles.title}>About Me</h2>
-          <p className={styles.story}>
-            I’m Shafayet Hussain, a passionate JavaScript developer who loves crafting
-            scalable, performant web apps. My specialty is React, Next.js, and Ember.js —
-            transforming complex ideas into intuitive user experiences.
+        <div className="flex-1 max-w-xl space-y-6">
+          <h2 className="text-4xl font-bold text-blue-700 dark:text-blue-400">About Me</h2>
+          <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-300">
+            I’m Shafayet Hussain, a passionate JavaScript developer who loves crafting scalable, performant web apps.
+            My specialty is React, Next.js, and Ember.js — transforming complex ideas into intuitive user experiences.
           </p>
-          <p className={styles.story}>
-            Beyond code, I enjoy hiking and photography — bringing creativity to every
-            aspect of my life.
+          <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-300">
+            Beyond code, I enjoy hiking and photography — bringing creativity to every aspect of my life.
           </p>
-          <p className={styles.highlight}>
+          <p className="text-lg font-semibold text-blue-700 dark:text-blue-400">
             Core Skills: <strong>JavaScript, React, Next.js, Ember.js, CSS Modules, Tailwind</strong>
           </p>
         </div>
 
-        <div className={styles.rightColumn} id="timeline">
-          <h3 className={styles.timelineTitle}>Experience & Education</h3>
-          <div className={styles.timeline}>
-            <motion.div className={styles.timelineProgress} style={{ scaleY }} />
+        <div className="flex-1 max-w-xl relative" id="timeline">
+          <h3 className="text-3xl font-semibold text-blue-700 dark:text-blue-400 text-center mb-8">Experience & Education</h3>
+          <div className="relative pl-8 border-l-4 border-blue-600 bg-white/15 dark:bg-white/5 backdrop-blur-md rounded-lg p-6">
+            <motion.div
+              className="absolute left-0 top-0 w-1 bg-gradient-to-b from-blue-600 to-transparent origin-top rounded"
+              style={{ height: '100%', scaleY }}
+            />
             {timelineData.map(({ year, title, company, description, icon, type }, idx) => (
               <motion.div
                 key={idx}
-                className={`${styles.timelineItem} ${styles[type]}`}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15, duration: 0.5 }}
-                whileHover={{ scale: 1.03, boxShadow: '0 8px 20px rgba(43,108,176,0.25)' }}
+                whileHover={{ scale: 1.03 }}
+                className={`relative mb-10 p-5 rounded-xl bg-white/15 dark:bg-white/5 shadow-lg transition-all cursor-default group ${
+                  type === 'education' ? 'border-l-4 border-green-500' : 'border-l-4 border-blue-500'
+                }`}
               >
-                <div className={styles.timelineIcon}>{icon}</div>
-                <div className={styles.timelineContent}>
-                  <span className={styles.timelineYear}>{year}</span>
-                  <h4 className={styles.timelinePosition}>{title}</h4>
-                  <h5 className={styles.timelineCompany}>{company}</h5>
-                  <p className={styles.timelineDesc}>{description}</p>
+                <div
+                  className={`absolute -left-10 top-4 rounded-full p-2 border-4 shadow-md flex items-center justify-center z-10 ${
+                    type === 'education'
+                      ? 'text-green-600 border-green-500 bg-green-100/10 shadow-green-300'
+                      : 'text-blue-600 border-blue-500 bg-blue-100/10 shadow-blue-300'
+                  }`}
+                >
+                  {icon}
+                </div>
+                <div>
+                  <span className="block text-sm text-gray-600 dark:text-gray-400 mb-1">{year}</span>
+                  <h4 className="text-xl font-bold text-blue-700 dark:text-blue-400 mb-1">{title}</h4>
+                  <h5 className="text-base font-semibold text-blue-700 dark:text-blue-400 mb-2">{company}</h5>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
                 </div>
               </motion.div>
             ))}
