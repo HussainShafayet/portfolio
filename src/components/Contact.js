@@ -9,6 +9,7 @@ import {
   Github,
   CheckCircle,
   AlertCircle,
+  Facebook,
 } from "lucide-react";
 
 const Contact = () => {
@@ -90,10 +91,10 @@ const Contact = () => {
                 label: "Email",
                 value: (
                   <a
-                    href="mailto:youremail@example.com"
+                    href="mailto:shafayetsec09@gmail.com"
                     className="hover:underline"
                   >
-                    youremail@example.com
+                    shafayetsec09@gmail.com
                   </a>
                 ),
               },
@@ -102,14 +103,14 @@ const Contact = () => {
                 label: "Phone",
                 value: (
                   <a href="tel:+1234567890" className="hover:underline">
-                    +1 (234) 567-890
+                    +8801925890091
                   </a>
                 ),
               },
               {
                 icon: <MapPin className="text-indigo-600" />,
                 label: "Location",
-                value: "New York, USA",
+                value: "Dhaka, Bangladesh",
               },
             ].map(({ icon, label, value }) => (
               <div key={label} className="flex items-center gap-4">
@@ -124,19 +125,24 @@ const Contact = () => {
           <div className="flex gap-6 text-indigo-600 dark:text-indigo-300">
             {[
               {
-                href: "https://linkedin.com/in/yourprofile",
+                href: "https://www.linkedin.com/in/hussainshafayet/",
                 icon: <Linkedin size={28} />,
                 label: "LinkedIn",
               },
               {
-                href: "https://twitter.com/yourprofile",
+                href: "https://x.com/imShafayet09",
                 icon: <Twitter size={28} />,
                 label: "Twitter",
               },
               {
-                href: "https://github.com/yourprofile",
+                href: "https://github.com/HussainShafayet",
                 icon: <Github size={28} />,
                 label: "GitHub",
+              },
+               {
+                href: "https://www.facebook.com/Shafayet91/",
+                icon: <Facebook size={28} />,
+                label: "Facebook",
               },
             ].map(({ href, icon, label }) => (
               <a
