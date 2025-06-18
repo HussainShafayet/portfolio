@@ -1,40 +1,53 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import gocart from '../assets/images/GoCart.png';
+import gallery from '../assets/images/image_gallery.png';
+import todo from '../assets/images/todo_app.png';
+
+
 
 const projects = [
   {
-    title: 'Fintech App',
+    title: 'GoCart',
     description:
-      'Modern UI and architecture for scalable banking solution.',
-    image: 'https://support.rebrandly.com/hc/article_attachments/17480600761373',
+      "Built a modern and responsive e-commerce platform using React, featuring dynamic product listings, shop-ping cart functionality, and seamless user experience. Integrated with APIs for real-time data handling and optimized for performance and accessibility.",
+    image: gocart,
     tags: ['React', 'Next.js', 'Tailwind'],
-    github: 'https://github.com/user/project',
-    demo: 'https://fintech.example.com',
+    github: 'https://github.com/HussainShafayet/ecom',
+    demo: 'https://drive.google.com/file/d/1jOW66tm644Ccgdb7saQOlccDAQQSlNLn/view?usp=sharing',
   },
   {
-    title: 'Travel Website',
-    description: 'Beautiful travel booking app with API integration.Beautiful travel booking app with API integration.Beautiful travel booking app with API integration.',
-    image: 'https://support.rebrandly.com/hc/article_attachments/17480600761373',
-    tags: ['Vue', 'Nuxt', 'Firebase'],
-    github: 'https://github.com/user/travel',
-    demo: 'https://travel.example.com',
+    title: 'Image Gallery',
+    description: 'Simplify image management – upload, delete, and sort effortlessly for an organized gallery.',
+    image: gallery,
+    tags: ['React', 'Django', 'sq3lite'],
+    github: 'https://github.com/HussainShafayet/image-gallery/tree/master',
+    demo: 'https://hussainshafayet.github.io/image-gallery/',
   },
    {
-    title: 'Fintech App',
+    title: 'Todo App',
     description:
-      'Modern UI and architecture for scalable banking solution.',
-    image: 'https://support.rebrandly.com/hc/article_attachments/17480600761373',
-    tags: ['React', 'Next.js', 'Tailwind'],
-    github: 'https://github.com/user/project',
-    demo: 'https://fintech.example.com',
+      'A Todo List Application built with React.js featuring a Kanban-style interface with three distinct columns: New, Ongoing, and Done. The app allows users to manage tasks through different stages of completion with added functionalities like context menus, date pickers, and form pre-filling.',
+    image: todo,
+    tags: ['React', 'Tailwind'],
+    github: 'https://github.com/HussainShafayet/todo-app',
+    demo: 'https://hussainshafayet.github.io/todo-app/',
   },
   {
-    title: 'Travel Website',
-    description: 'Beautiful travel booking app with API integration.Beautiful travel booking app with API integration.Beautiful travel booking app with API integration.',
+    title: 'Zerocode',
+    description: 'Developed an accounting system to manage financial records and transactions. Utilized Ember.js for a re-sponsive and modular front-end. Integrated APIs using Ember Data for seamless data management. Managed live notifications and real-time updates with WebSockets. Focused on creating a user-friendly interface and optimized performance',
     image: 'https://support.rebrandly.com/hc/article_attachments/17480600761373',
-    tags: ['Vue', 'Nuxt', 'Firebase'],
-    github: 'https://github.com/user/travel',
-    demo: 'https://travel.example.com',
+    tags: ['Ember.js', 'Ember Data', 'WebSockets'],
+    github: 'https://github.com/user/Zerocode',
+    demo: 'https://Zerocode.example.com',
+  },
+  {
+    title: 'HR',
+    description: 'Developed an HR web app with Ember.js, utilizing Ember Data for API management. Implemented real-time updates via WebSockets. Focused on modular design, performance optimization, and Agile practices.',
+    image: 'https://support.rebrandly.com/hc/article_attachments/17480600761373',
+    tags: ['Ember.js', 'WebSockets'],
+    github: 'https://github.com/user/hr',
+    demo: 'https://hr.example.com',
   },
   // Add more projects as needed...
 ];
