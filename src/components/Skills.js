@@ -2,43 +2,52 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Code,
-  Terminal,
   Atom,
-  Zap,
-  Wrench,
+  Code,
+  FileCode,
   GitBranch,
-  Database,
+  LayoutDashboard,
+  Network,
   Server,
   Settings,
-  Globe,
+  Wrench,
+  Zap,
+  Database,
+  Braces,
+  Paintbrush
 } from 'lucide-react';
-
 
 const categories = {
   All: [
     { name: 'JavaScript', icon: <Zap size={20} /> },
-  { name: 'React', icon: <Atom size={20} /> },
-  { name: 'Next.js', icon: <Server size={20} /> },
-  { name: 'HTML/CSS', icon: <Code size={20} /> },
-  { name: 'Git & GitHub', icon: <GitBranch size={20} /> },
-  { name: 'REST API', icon: <Settings size={20} /> },
-  { name: 'Node.js', icon: <Database size={20} /> },
-  { name: 'Build Tools', icon: <Wrench size={20} /> },
+    { name: 'React', icon: <Atom size={20} /> },
+    { name: 'Next.js', icon: <LayoutDashboard size={20} /> },
+    { name: 'HTML/CSS', icon: <Code size={20} /> },
+    { name: 'Tailwind CSS', icon: <Paintbrush size={20} /> },
+    { name: 'Git & GitHub', icon: <GitBranch size={20} /> },
+    { name: 'REST API', icon: <Network size={20} /> },
+    { name: 'Django', icon: <Braces size={20} /> },
+    { name: 'Python', icon: <FileCode size={20} /> },
+    { name: 'Build Tools', icon: <Wrench size={20} /> },
   ],
   Frontend: [
     { name: 'JavaScript', icon: <Zap size={20} /> },
     { name: 'React', icon: <Atom size={20} /> },
-    { name: 'Next.js', icon: <Server size={20} /> },
+    { name: 'Next.js', icon: <LayoutDashboard size={20} /> },
+    { name: 'Tailwind CSS', icon: <Paintbrush size={20} /> },
     { name: 'HTML/CSS', icon: <Code size={20} /> },
+  ],
+  Backend: [
+    { name: 'Python', icon: <FileCode size={20} /> },
+    { name: 'Django', icon: <Braces size={20} /> },
+    { name: 'REST API', icon: <Network size={20} /> },
   ],
   Tools: [
     { name: 'Git & GitHub', icon: <GitBranch size={20} /> },
-  { name: 'REST API', icon: <Settings size={20} /> },
-  { name: 'Node.js', icon: <Database size={20} /> },
-  { name: 'Build Tools', icon: <Wrench size={20} /> }
+    { name: 'Build Tools', icon: <Wrench size={20} /> },
   ],
 };
+
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
