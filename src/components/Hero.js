@@ -1,7 +1,6 @@
 // src/components/Hero.jsx
-import style from '../assets/styles/components/Hero.module.css';
-import profileImg from '../assets/images/self.jpg'; // Your profile image
-import resumePDF from '../assets/resume/shafayet_s_Resume.pdf'; // Path to your resume
+import profileImg from '../assets/images/self.jpg';
+import resumePDF from '../assets/resume/shafayet_s_Resume.pdf';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -18,45 +17,70 @@ const fadeInUp = {
 };
 
 const Hero = () => (
- <section
-  id="hero"
-  className={`min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4 py-10 ${style.heroSection}`}>
-
-    <div className={`${style.heroContainer}`}>
+  <section
+    id="hero"
+    className="w-full min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4 py-10 bg-gradient-to-br from-gray-100 to-white text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100"
+  >
+    <div className="flex flex-wrap items-center justify-center gap-12 max-w-6xl w-full md:flex-row flex-col text-center md:text-left">
+      {/* Image */}
       <motion.div
-        className={style.heroImageWrapper}
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
         custom={0.2}
+        className="flex-1 flex justify-center items-center"
       >
-        <img src={profileImg} alt="Shafayet Hussain" className={style.heroImage} />
+        <img
+          src={profileImg}
+          alt="Shafayet Hussain"
+          className="w-56 h-56 md:w-56 md:h-56 sm:w-44 sm:h-44 object-cover rounded-full border-4 border-blue-600 dark:border-blue-400 shadow-lg transition-transform duration-300 hover:scale-105"
+        />
       </motion.div>
 
-      <motion.div className={style.heroContent} initial="hidden" animate="visible">
-        <motion.h2 variants={fadeInUp} custom={0.3} className={style.heroSubHeader}>
+      {/* Content */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        className="flex-1 max-w-xl"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          custom={0.3}
+          className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-1"
+        >
           Hi, I'm
         </motion.h2>
-        <motion.h1 variants={fadeInUp} custom={0.4} className={style.heroHeader}>
+        <motion.h1
+          variants={fadeInUp}
+          custom={0.4}
+          className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-2"
+        >
           Shafayet Hussain
         </motion.h1>
-        <motion.p variants={fadeInUp} custom={0.5} className={style.heroTagline}>
+        <motion.p
+          variants={fadeInUp}
+          custom={0.5}
+          className="text-lg font-semibold text-gray-500 dark:text-gray-300 mb-6"
+        >
           JavaScript Developer & Web App Specialist
         </motion.p>
-        <motion.p variants={fadeInUp} custom={0.6} className={style.heroText}>
+        <motion.p
+          variants={fadeInUp}
+          custom={0.6}
+          className="text-base md:text-[1rem] leading-relaxed text-gray-600 dark:text-gray-300 px-2"
+        >
           I craft dynamic, scalable web applications with clean code and seamless user experiences. With 3+ years of hands-on experience using React, Next.js, and Ember.js, I build performance-optimized tools that solve real problems.
           <br /><br />
           From HR systems to e-commerce platforms, I focus on modular architecture, real-time features, and user-first design.
           <br /><br />
-          <span className={style.highlight}>Let’s build something exceptional.</span>
+          <span className="font-semibold text-blue-600 dark:text-blue-400">Let’s build something exceptional.</span>
         </motion.p>
-
         <motion.a
           variants={fadeInUp}
           custom={0.8}
           href={resumePDF}
           download="Shafayet_Hussain_Resume.pdf"
-          className={style.resumeButton}
+          className="inline-block mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-200 transform hover:-translate-y-1 active:scale-95"
         >
           Download Resume
         </motion.a>
