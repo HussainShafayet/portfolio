@@ -56,7 +56,7 @@ const ProjectShowcase = () => {
   return (
     <section
       id="projects"
-      className="py-16"
+      className="py-20"
     >
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">

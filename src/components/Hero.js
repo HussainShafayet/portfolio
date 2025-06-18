@@ -19,7 +19,7 @@ const fadeInUp = {
 const Hero = () => (
   <section
     id="hero"
-    className="w-full min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4 py-6"
+    className="w-full min-h-screen pt-20 md:pt-0 flex items-center justify-center px-4"
   >
     <div className="flex flex-wrap items-center justify-center gap-12 max-w-6xl w-full md:flex-row flex-col text-center md:text-left">
       {/* Image */}
