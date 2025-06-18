@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
+import {ThemeContext} from '../context/ThemeContext';
 
 const sections = ['about', 'skills', 'projects', 'contact'];
 
@@ -46,6 +47,18 @@ useEffect(() => {
       {label}
     </a>
   );
+  const ThemeToggle = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
+    return (
+      <button
+        onClick={toggleTheme}
+        className="px-4 py-2 rounded border dark:border-slate-600"
+      >
+        {theme === 'dark' ? '☀ Light' : '🌙 Dark'}
+      </button>
+    );
+  };
 
   return (
     <nav className="py-4 sticky top-0 z-20 bg-white shadow-md">
@@ -60,6 +73,7 @@ useEffect(() => {
             {navLink('projects', 'Projects')}
             {navLink('contact', 'Contact')}
           </div>
+          <ThemeToggle />
 
           {/* Mobile Button */}
           <div className="md:hidden">

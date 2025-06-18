@@ -13,8 +13,6 @@
   margin: 0 auto;
   padding: 4rem 1.5rem;
   font-family: 'Inter', sans-serif;
-  color: var(--color-text);
-  background: linear-gradient(135deg, #e9f0fc, #fefefe);
 }
 
 .innerWrapper {

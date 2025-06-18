@@ -51,7 +51,7 @@ const About = () => {
   const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <section id="about" className={styles.aboutSection}>
+    <section id="about" className={`bg-white text-gray-900 dark:bg-[#0f0f0f] dark:text-slate-100 ${styles.aboutSection}`}>
       <motion.div
         className={styles.innerWrapper}
         initial={{ opacity: 0, y: 20 }}
