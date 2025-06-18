@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
         {/* Brand & Description */}
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-indigo-700 dark:text-indigo-400">kinbenNaki</h2>
+          <h2 className="text-3xl font-bold text-indigo-700 dark:text-indigo-400">Shafayet</h2>
           <p className="text-sm leading-relaxed">
             Showcasing passion, projects, and performance. Crafted with care using React & Tailwind.
           </p>
@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-300">Explore</h3>
           <ul className="space-y-2">
-            {["Home", "About", "Projects", "Contact"].map((item) => (
+            {["About", "Skills", "Projects", "Contact"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -37,9 +37,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-300">Connect</h3>
             <div className="flex gap-4">
               {[
-                { href: "https://linkedin.com/in/yourprofile", icon: Linkedin },
-                { href: "https://twitter.com/yourprofile", icon: Twitter },
-                { href: "https://github.com/yourprofile", icon: Github },
+                { href: "https://www.linkedin.com/in/hussainshafayet/", icon: Linkedin },
+                { href: "https://x.com/imShafayet09", icon: Twitter },
+                { href: "https://github.com/HussainShafayet", icon: Github },
+                { href: "https://www.facebook.com/Shafayet91/", icon: Facebook },
               ].map(({ href, icon: Icon }, i) => (
                 <a
                   key={i}
@@ -55,7 +56,7 @@ const Footer = () => {
           </div>
 
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-6 sm:mt-0">
-            © {year} kinbenNaki. All rights reserved.
+            © {year} shafayet. All rights reserved.
           </p>
         </div>
       </div>
