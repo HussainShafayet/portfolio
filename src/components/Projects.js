@@ -56,7 +56,7 @@ const ProjectShowcase = () => {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-b from-white to-gray-50 py-20 dark:from-gray-900 dark:to-gray-800"
+      className="py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">

@@ -65,7 +65,7 @@ const Contact = () => {
   }, [success]);
 
   return (
-    <section id="contact" className="mx-auto p-8 bg-gradient-to-br from-indigo-50 via-white to-indigo-50 shadow-xl dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section id="contact" className="mx-auto px-6 py-16">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

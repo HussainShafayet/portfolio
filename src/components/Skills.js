@@ -53,7 +53,7 @@ const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
-    <section id="skills" className="py-16 bg-gray-50">
+    <section id="skills" className="py-16">
       <div className="max-w-5xl mx-auto px-4 text-center">
         <motion.h2
           className="text-3xl font-bold mb-8"

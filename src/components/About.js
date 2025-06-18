@@ -49,7 +49,7 @@ const About = () => {
   const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <section id="about" className="bg-gradient-to-br from-gray-100 to-white text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 py-20 px-6">
+    <section id="about" className="py-6 px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
