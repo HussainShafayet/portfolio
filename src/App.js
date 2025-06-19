@@ -9,6 +9,7 @@ import {
   Navbar,
   Projects,
   ScrollToTop,
+  SEO,
   Skills,
 } from "./components";
 import ScrollToHash from "./components/ScrollToHash";
@@ -16,6 +17,7 @@ import ScrollToHash from "./components/ScrollToHash";
 const App = () => {
   return (
     <div className="min-h-screen md:container md:mx-auto px-4 bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100">
+      <SEO />
       <ScrollToHash />
       <Navbar />
 
