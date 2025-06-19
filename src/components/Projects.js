@@ -39,7 +39,7 @@ const projects = [
     image: '/project.avif', // Put this in your public folder
     tags: ['Ember.js', 'Ember Data', 'WebSockets'],
     github: 'https://github.com/user/Zerocode',
-    demo: 'https://zerocode.example.com',
+    demo: '',
   },
   {
     title: 'HR System',
@@ -48,7 +48,7 @@ const projects = [
     image: '/project.avif',
     tags: ['Ember.js', 'WebSockets'],
     github: 'https://github.com/user/hr',
-    demo: 'https://hr.example.com',
+    demo: '',
   },
 ];
 
