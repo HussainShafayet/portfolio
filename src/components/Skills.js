@@ -8,11 +8,8 @@ import {
   GitBranch,
   LayoutDashboard,
   Network,
-  Server,
-  Settings,
   Wrench,
   Zap,
-  Database,
   Braces,
   Paintbrush
 } from 'lucide-react';

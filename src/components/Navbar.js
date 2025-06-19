@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "./Navbar.module.css";
 import { ThemeContext } from "../context/ThemeContext";
 
 const sections = ["about", "skills", "projects", "contact"];
