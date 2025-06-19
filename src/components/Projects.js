@@ -36,7 +36,7 @@ const projects = [
     title: 'Zerocode',
     description:
       'Accounting app with real-time updates, API integration, and modular UI using Ember.js and WebSockets.',
-    image: '/og-image.png', // Put this in your public folder
+    image: '/project.avif', // Put this in your public folder
     tags: ['Ember.js', 'Ember Data', 'WebSockets'],
     github: 'https://github.com/user/Zerocode',
     demo: 'https://zerocode.example.com',
@@ -45,7 +45,7 @@ const projects = [
     title: 'HR System',
     description:
       'HR web app built with Ember.js, focusing on real-time updates and high-performance modular components.',
-    image: '/og-image.png',
+    image: '/project.avif',
     tags: ['Ember.js', 'WebSockets'],
     github: 'https://github.com/user/hr',
     demo: 'https://hr.example.com',
