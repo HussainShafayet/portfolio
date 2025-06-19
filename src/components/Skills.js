@@ -1,4 +1,3 @@
-// src/components/Skills.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -11,7 +10,7 @@ import {
   Wrench,
   Zap,
   Braces,
-  Paintbrush
+  Paintbrush,
 } from 'lucide-react';
 
 const categories = {
@@ -45,7 +44,6 @@ const categories = {
   ],
 };
 
-
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -53,24 +51,25 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="max-w-5xl mx-auto px-4 text-center">
         <motion.h2
-          className="text-3xl font-bold mb-8"
+          className="text-4xl font-bold mb-10 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
           Skills
         </motion.h2>
 
-        <div className="flex justify-center gap-4 mb-8">
+        {/* Category Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
           {Object.keys(categories).map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full font-medium border ${
+              className={`px-4 py-2 rounded-full font-medium border text-sm transition ${
                 activeCategory === category
-                  ? 'bg-blue-600 text-white border-blue-600'
-                  : 'text-gray-700 hover:bg-blue-100'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                  : 'text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-800'
               }`}
             >
               {category}
@@ -78,6 +77,7 @@ const Skills = () => {
           ))}
         </div>
 
+        {/* Skills Grid */}
         <motion.div
           key={activeCategory}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -88,11 +88,13 @@ const Skills = () => {
           {categories[activeCategory].map((skill, idx) => (
             <motion.div
               key={idx}
-              className="flex flex-col items-center bg-white shadow-md p-4 rounded-xl hover:shadow-xl transition"
+              className="flex flex-col items-center bg-white dark:bg-gray-900 shadow-md dark:shadow-black/30 p-4 rounded-xl hover:shadow-lg dark:hover:shadow-blue-900 transition-all group"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-blue-600 mb-2">{skill.icon}</div>
-              <p className="text-sm font-semibold text-gray-800">{skill.name}</p>
+              <div className="text-blue-600 dark:text-blue-400 mb-2">{skill.icon}</div>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                {skill.name}
+              </p>
             </motion.div>
           ))}
         </motion.div>
