@@ -9,7 +9,6 @@ export {default as ResearchPapers} from './ResearchPapers';
 export {default as ScrollToTop} from './ScrollToTop';
 export {default as FadeInSection} from './FadeInSection';
 export {default as Footer} from './Footer';
-export {default as SEO} from './SEO';
 
 
 
