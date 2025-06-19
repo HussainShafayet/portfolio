@@ -47,12 +47,26 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      setIsSubmitting(true);
+      const formData = new FormData();
+
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("message", form.message);
+      
       // Simulate API call
-      await new Promise((r) => setTimeout(r, 2000));
-      setIsSubmitting(false);
-      setSuccess(true);
-      setForm({ name: "", email: "", message: "" });
+      const response = await fetch("https://formspree.io/f/xwpbqdvk", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        setIsSubmitting(false);
+        setSuccess(true);
+        setForm({ name: "", email: "", message: "" });
+      }
+      
     }
   };
 
