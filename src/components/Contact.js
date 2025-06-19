@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Github,
-  CheckCircle,
-  AlertCircle,
-  Facebook,
+  Mail, Phone, MapPin, Linkedin, Twitter, Github, Facebook,
+  CheckCircle, AlertCircle,
 } from "lucide-react";
 
 const Contact = () => {
@@ -19,7 +12,7 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
 
   const validate = (fieldValues = form) => {
-    let temp = { ...errors };
+    const temp = { ...errors };
     if ("name" in fieldValues)
       temp.name = fieldValues.name ? "" : "Please enter your name.";
     if ("email" in fieldValues)
@@ -28,18 +21,16 @@ const Contact = () => {
         : "Email is not valid.";
     if ("message" in fieldValues)
       temp.message = fieldValues.message ? "" : "Message cannot be empty.";
-
     setErrors(temp);
     return Object.values(temp).every((x) => x === "");
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((prev) => ({ ...prev, [name]: value }));
     validate({ [name]: value });
   };
 
-  // Clear error on input focus
   const handleFocus = (e) => {
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
@@ -47,30 +38,26 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
+      setIsSubmitting(true);
       const formData = new FormData();
+      Object.entries(form).forEach(([key, value]) =>
+        formData.append(key, value)
+      );
 
-      formData.append("name", form.name);
-      formData.append("email", form.email);
-      formData.append("message", form.message);
-      
-      // Simulate API call
-      const response = await fetch("https://formspree.io/f/xwpbqdvk", {
+      const res = await fetch("https://formspree.io/f/xwpbqdvk", {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
       });
-      if (response.ok) {
-        setIsSubmitting(false);
+
+      setIsSubmitting(false);
+      if (res.ok) {
         setSuccess(true);
         setForm({ name: "", email: "", message: "" });
       }
-      
     }
   };
 
-  // Auto-hide success message after 3s
   useEffect(() => {
     if (success) {
       const timer = setTimeout(() => setSuccess(false), 3000);
@@ -79,7 +66,7 @@ const Contact = () => {
   }, [success]);
 
   return (
-    <section id="contact" className="mx-auto px-6 py-20">
+    <section id="contact" className="max-w-6xl mx-auto px-6 py-20">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,25 +76,23 @@ const Contact = () => {
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-12">
-        {/* Left - Contact Info */}
+        {/* Left Column */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           className="space-y-8 text-indigo-900 dark:text-indigo-200"
         >
-          <p className="text-lg">
-            Feel free to reach out via the form or connect on social media.
+          <p className="text-lg leading-relaxed">
+            Feel free to reach out via the form or connect with me on social media.
           </p>
+
           <div className="space-y-4">
             {[
               {
                 icon: <Mail className="text-indigo-600" />,
                 label: "Email",
                 value: (
-                  <a
-                    href="mailto:shafayetsec09@gmail.com"
-                    className="hover:underline"
-                  >
+                  <a href="mailto:shafayetsec09@gmail.com" className="hover:underline">
                     shafayetsec09@gmail.com
                   </a>
                 ),
@@ -116,7 +101,7 @@ const Contact = () => {
                 icon: <Phone className="text-indigo-600" />,
                 label: "Phone",
                 value: (
-                  <a href="tel:+1234567890" className="hover:underline">
+                  <a href="tel:+8801925890091" className="hover:underline">
                     +8801925890091
                   </a>
                 ),
@@ -127,7 +112,7 @@ const Contact = () => {
                 value: "Dhaka, Bangladesh",
               },
             ].map(({ icon, label, value }) => (
-              <div key={label} className="flex items-center gap-4">
+              <div key={label} className="flex items-start gap-4">
                 {icon}
                 <div>
                   <h4 className="font-semibold">{label}</h4>
@@ -136,28 +121,13 @@ const Contact = () => {
               </div>
             ))}
           </div>
+
           <div className="flex gap-6 text-indigo-600 dark:text-indigo-300">
             {[
-              {
-                href: "https://www.linkedin.com/in/hussainshafayet/",
-                icon: <Linkedin size={28} />,
-                label: "LinkedIn",
-              },
-              {
-                href: "https://x.com/imShafayet09",
-                icon: <Twitter size={28} />,
-                label: "Twitter",
-              },
-              {
-                href: "https://github.com/HussainShafayet",
-                icon: <Github size={28} />,
-                label: "GitHub",
-              },
-               {
-                href: "https://www.facebook.com/Shafayet91/",
-                icon: <Facebook size={28} />,
-                label: "Facebook",
-              },
+              { href: "https://www.linkedin.com/in/hussainshafayet/", icon: <Linkedin size={26} />, label: "LinkedIn" },
+              { href: "https://x.com/imShafayet09", icon: <Twitter size={26} />, label: "Twitter" },
+              { href: "https://github.com/HussainShafayet", icon: <Github size={26} />, label: "GitHub" },
+              { href: "https://www.facebook.com/Shafayet91/", icon: <Facebook size={26} />, label: "Facebook" },
             ].map(({ href, icon, label }) => (
               <a
                 key={label}
@@ -173,7 +143,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Right - Form */}
+        {/* Right Column - Contact Form */}
         <motion.form
           onSubmit={handleSubmit}
           className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
@@ -181,85 +151,44 @@ const Contact = () => {
           animate={{ opacity: 1, x: 0 }}
           noValidate
         >
-          {/* Name */}
-          <div className="relative mb-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              disabled={isSubmitting}
-              className={`peer w-full p-3 border-b-2 outline-none transition-colors ${
-                errors.name
-                  ? "border-red-500 focus:border-red-600"
-                  : "border-indigo-300 focus:border-indigo-600"
-              }`}
-              aria-invalid={!!errors.name}
-              aria-describedby="name-error"
-            />
-            {errors.name ? (
-              <p
-                id="name-error"
-                className="text-red-600 text-sm mt-1 flex items-center gap-1"
-              >
-                <AlertCircle className="w-4 h-4 text-red-600" />
-                {errors.name}
-              </p>
-            ) : (
-              form.name && (
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="absolute right-2 top-3 text-green-500"
-                >
-                  <CheckCircle size={20} />
-                </motion.div>
-              )
-            )}
-          </div>
+          {["name", "email"].map((field) => (
+            <div key={field} className="relative mb-6">
+              <input
+                type={field === "email" ? "email" : "text"}
+                name={field}
+                placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                value={form[field]}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                disabled={isSubmitting}
+                className={`peer w-full p-3 border-b-2 bg-transparent outline-none transition-colors ${
+                  errors[field]
+                    ? "border-red-500 focus:border-red-600"
+                    : "border-indigo-300 focus:border-indigo-600"
+                }`}
+                aria-invalid={!!errors[field]}
+                aria-describedby={`${field}-error`}
+              />
+              {errors[field] ? (
+                <p id={`${field}-error`} className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors[field]}
+                </p>
+              ) : (
+                form[field] && (
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="absolute right-2 top-3 text-green-500"
+                  >
+                    <CheckCircle size={20} />
+                  </motion.div>
+                )
+              )}
+            </div>
+          ))}
 
-          {/* Email */}
-          <div className="relative mb-6">
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              disabled={isSubmitting}
-              className={`peer w-full p-3 border-b-2 outline-none transition-colors ${
-                errors.email
-                  ? "border-red-500 focus:border-red-600"
-                  : "border-indigo-300 focus:border-indigo-600"
-              }`}
-              aria-invalid={!!errors.email}
-              aria-describedby="email-error"
-            />
-            {errors.email ? (
-              <p
-                id="email-error"
-                className="text-red-600 text-sm mt-1 flex items-center gap-1"
-              >
-                <AlertCircle className="w-4 h-4 text-red-600" />
-                {errors.email}
-              </p>
-            ) : (
-              form.email && (
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="absolute right-2 top-3 text-green-500"
-                >
-                  <CheckCircle size={20} />
-                </motion.div>
-              )
-            )}
-          </div>
-
-          {/* Message */}
+          {/* Message Field */}
           <div className="relative mb-6">
             <textarea
               name="message"
@@ -269,7 +198,7 @@ const Contact = () => {
               onChange={handleChange}
               onFocus={handleFocus}
               disabled={isSubmitting}
-              className={`peer w-full p-3 border-b-2 resize-none outline-none transition-colors ${
+              className={`peer w-full p-3 border-b-2 resize-none bg-transparent outline-none transition-colors ${
                 errors.message
                   ? "border-red-500 focus:border-red-600"
                   : "border-indigo-300 focus:border-indigo-600"
@@ -278,11 +207,8 @@ const Contact = () => {
               aria-describedby="message-error"
             />
             {errors.message ? (
-              <p
-                id="message-error"
-                className="text-red-600 text-sm mt-1 flex items-center gap-1"
-              >
-                <AlertCircle className="w-4 h-4 text-red-600" />
+              <p id="message-error" className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                <AlertCircle className="w-4 h-4" />
                 {errors.message}
               </p>
             ) : (
@@ -298,7 +224,6 @@ const Contact = () => {
             )}
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -307,7 +232,6 @@ const Contact = () => {
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
 
-          {/* Success Message */}
           <AnimatePresence>
             {success && (
               <motion.div
