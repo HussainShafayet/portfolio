@@ -15,7 +15,7 @@ const SEO = () => (
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:url" content="https://shafayethussain.netlify.app/" />
     <meta property="og:title" content="Shafayet Hussain | JavaScript Developer" />
     <meta
       property="og:description"
@@ -25,7 +25,7 @@ const SEO = () => (
 
     {/* Twitter */}
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://yourdomain.com/" />
+    <meta property="twitter:url" content="https://shafayethussain.netlify.app/" />
     <meta property="twitter:title" content="Shafayet Hussain | JavaScript Developer" />
     <meta
       property="twitter:description"
@@ -33,7 +33,7 @@ const SEO = () => (
     />
     <meta property="twitter:image" content="https://yourdomain.com/og-image.jpg" />
 
-    <link rel="canonical" href="https://yourdomain.com/" />
+    <link rel="canonical" href="https://shafayethussain.netlify.app/" />
   </Helmet>
 );
 
