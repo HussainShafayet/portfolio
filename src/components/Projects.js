@@ -3,6 +3,8 @@ import { ExternalLink, Github } from 'lucide-react';
 import gocart from '../assets/images/GoCart.png';
 import gallery from '../assets/images/image_gallery.png';
 import todo from '../assets/images/todo_app.png';
+import weather from '../assets/images/weather.png';
+
 
 const projects = [
   {
@@ -31,6 +33,15 @@ const projects = [
     tags: ['React', 'Tailwind'],
     github: 'https://github.com/HussainShafayet/todo-app',
     demo: 'https://hussainshafayet.github.io/todo-app/',
+  },
+   {
+    title: 'Weather App',
+    description:
+      'A React app displaying current weather and 5-day forecast using OpenWeather API, Axios, and Tailwind CSS. Shows temperature, humidity, wind, and weather icons with a clean, responsive design.',
+    image: weather,
+    tags: ['React', 'Tailwind'],
+    github: 'https://github.com/HussainShafayet/weatherapp',
+    demo: 'https://weatherdekhben.netlify.app/',
   },
   {
     title: 'Zerocode',
