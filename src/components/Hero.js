@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import profileImg from '../assets/images/self.jpg';
-import resumePDF from '../assets/resume/shafayet_s_Resume.pdf';
+import resumePDF from "../assets/resume/shafayet's_Resume.pdf";
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
