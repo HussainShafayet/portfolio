@@ -70,7 +70,7 @@ const Hero = () => {
             custom={0.6}
             className="text-base leading-relaxed text-gray-700 dark:text-gray-300"
           >
-            I craft dynamic, scalable web applications with clean code and seamless user experiences. With 3+ years of hands-on experience using <strong>React, Next.js, and Ember.js</strong>, I build performance-optimized tools that solve real problems.
+            I craft dynamic, scalable web applications with clean code and seamless user experiences. With 4 years of hands-on experience using <strong>React, Next.js, and Ember.js</strong>, I build performance-optimized tools that solve real problems.
             <br /><br />
             From HR systems to e-commerce platforms, I focus on modular architecture, real-time features, and user-first design.
             <br /><br />
