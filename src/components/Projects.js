@@ -28,11 +28,11 @@ const projects = [
   {
     title: 'Todo App',
     description:
-      'Kanban-style Todo app with drag-and-drop tasks across New, Ongoing, and Done. Includes form pre-filling and context menus.',
+      'A modern, responsive Todo app built with React, featuring drag-and-drop, theming, and real-time search.',
     image: todo,
     tags: ['React', 'Tailwind'],
-    github: 'https://github.com/HussainShafayet/todo-app',
-    demo: 'https://hussainshafayet.github.io/todo-app/',
+    github: 'https://github.com/HussainShafayet/todo',
+    demo: "https://todo-app-91.netlify.app/",
   },
    {
     title: 'Weather App',
