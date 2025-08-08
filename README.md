@@ -50,8 +50,8 @@ A modern, responsive, and animated portfolio website built with **React 19**, **
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/HussainShafayet/portfolio.git
+cd portfolio
 ```
 ### 2. Start the Development Server
 ```bash
